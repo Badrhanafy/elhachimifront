@@ -73,38 +73,41 @@ function Hero() {
       {/* LOGOS BOTTOM (BIG + PROPER PADDING) */}
       <div className="relative z-10 pb-6 md:pb-10 border-t border-white/10">
 
-        <div className="overflow-x-auto px-5 md:px-10">
-          <div className="
-            flex items-center gap-10 md:gap-16
-            justify-center
-            min-w-max
-          ">
+  <div className="px-5 md:px-10 py-6">
 
-            {[
-              "/logos/chadawhite.png",
-              "/logos/easfrwhite.png",
-              "/logos/jsmwhite.png",
-              "/logos/mlffwhite.png",
-              "/logos/ocpwhite.png",
-              "/logos/teamwhite.png",
-            ].map((logo, i) => (
-              <img
-                key={i}
-                src={logo}
-                alt="logo"
-                className="
-                  h-12 sm:h-16 md:h-20 lg:h-24
-                  object-contain
-                  opacity-70 hover:opacity-100
-                  transition
-                "
-              />
-            ))}
+    <div className="
+      grid grid-cols-3 sm:grid-cols-3 md:grid-cols-6
+      gap-6 md:gap-10
+      items-center
+      justify-items-center
+    ">
 
-          </div>
-        </div>
+      {[
+        "/logos/chadawhite.png",
+        "/logos/easfrwhite.png",
+        "/logos/jsmwhite.png",
+        "/logos/mlffwhite.png",
+        "/logos/ocpwhite.png",
+        "/logos/teamwhite.png",
+      ].map((logo, i) => (
+        <img
+          key={i}
+          src={logo}
+          alt="logo"
+          className="
+            h-10 sm:h-14 md:h-16 lg:h-20
+            object-contain
+            opacity-70 hover:opacity-100
+            transition
+          "
+        />
+      ))}
 
-      </div>
+    </div>
+
+  </div>
+
+</div>
     </section>
   );
 }
