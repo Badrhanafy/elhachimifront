@@ -9,6 +9,7 @@ function About() {
   const containerRef = useRef(null);
   const isInView = useInView(containerRef, { once: true, margin: "-100px" });
 
+  // typing effect
   useEffect(() => {
     if (!isInView) return;
 
@@ -20,112 +21,127 @@ function About() {
       } else {
         clearInterval(interval);
       }
-    }, 18);
+    }, 25);
 
     return () => clearInterval(interval);
-  }, [isInView]);
+  }, [isInView, descriptionText.length]);
 
   return (
     <section
-      className="relative w-full min-h-screen py-20 px-5 md:px-20 overflow-hidden bg-white"
+      className="relative w-full bg-white py-16 px-6 md:px-16 overflow-hidden min-h-[90vh] flex items-center justify-center"
       dir="rtl"
+      style={{ fontFamily: "lightfont" }}
     >
-      {/* BACKGROUND GLOW (cleaner) */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-1/2 left-1/2 w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 bg-lime-400/20 blur-[120px] rounded-full" />
-        <div className="absolute -top-40 -right-40 w-[300px] h-[300px] bg-lime-400/20 blur-[120px] rounded-full" />
+      {/* ===== طبقة الزجاج الأخضر المصفر الحقيقية ===== */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          backgroundColor: "rgba(173, 255, 47, 0.15)", // #ADFF2F شفاف
+          mixBlendMode: "overlay",
+          // نسيج ضوضاء خفيف لزيادة واقعية الزجاج (اختياري)
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "100px 100px",
+        }}
+      />
+
+      {/* طبقة توهج ناعم إضافية لتعزيز اللون الأخضر دون التأثير على الزجاج */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ADFF2F] blur-[120px] rounded-full opacity-30 mix-blend-screen" />
+        <div className="absolute -top-32 -right-40 w-[300px] h-[300px] bg-[#ADFF2F] blur-[140px] rounded-full opacity-20 mix-blend-screen" />
+        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-[#b6f605] blur-[160px] rounded-full opacity-20 mix-blend-screen" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto flex flex-col gap-16">
-        
-        {/* TOP */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-
+      {/* المحتوى الأساسي فوق طبقات الخلفية */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
+        {/* TOP SECTION */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
           {/* TEXT */}
           <motion.div
             ref={containerRef}
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
             className="text-right"
           >
-            <span className="inline-block text-xs bg-gray-100 px-3 py-1 rounded-full text-gray-600 mb-4">
+            <div className="inline-block bg-gray-100 text-gray-500 text-[10px] px-3 py-1 rounded-full mb-3">
               من نحن
-            </span>
+            </div>
 
-            <h2 className="text-3xl md:text-6xl font-black mb-5 leading-tight">
-              من نحن
-            </h2>
+            <h3 className="text-4xl md:text-6xl font-black text-black mb-4">
+              من نحن !
+            </h3>
 
-            <p className="text-gray-700 text-base md:text-lg leading-loose min-h-[120px]">
+            <p className="text-gray-800 text-base md:text-lg leading-relaxed min-h-[120px]">
               {descriptionText.slice(0, visibleCount)}
-              <span className="inline-block w-[2px] h-5 bg-lime-500 animate-pulse mr-1" />
+              <motion.span
+                animate={{ opacity: [0, 1, 0] }}
+                transition={{ repeat: Infinity, duration: 0.8 }}
+                className="inline-block w-[2px] h-[18px] bg-[#93f304] mr-1"
+              />
             </p>
           </motion.div>
 
-          {/* LOGO */}
+          {/* LOGO CARD */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.7 }}
-            className="flex justify-center"
+            transition={{ duration: 0.8 }}
+            className="relative flex justify-center"
           >
-            <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-2xl bg-black flex items-center justify-center overflow-hidden shadow-2xl">
-              
-              {/* glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-lime-400/30 via-transparent to-black" />
+            {/* توهج خلف البطاقة بلون أخضر مصفر */}
+            <div className="absolute w-[120%] h-[120%] bg-[#ADFF2F] blur-[100px] rounded-full opacity-40 mix-blend-screen" />
 
+            <div className="relative w-72 h-72 bg-black flex items-center justify-center overflow-hidden shadow-2xl">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ADFF2F]/40 via-transparent to-black/80" />
               <img
                 src="/logo2.png"
                 alt="logo"
-                className="w-24 md:w-32 object-contain z-10"
+                className="relative z-10 w-32 opacity-90"
               />
             </div>
           </motion.div>
         </div>
 
         {/* DIVIDER */}
-        <div className="w-full h-px bg-gray-200" />
+        <div className="w-full h-px bg-gray-300/60 mb-10" />
 
         {/* VISION / MISSION */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* VISION */}
           <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm overflow-hidden"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="relative p-8 bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl overflow-hidden shadow-lg"
           >
-            <div className="absolute -top-10 -left-10 w-[180px] h-[180px] bg-lime-400/20 blur-[80px] rounded-full" />
+            {/* توهج داخلي ناعم */}
+            <div className="absolute -top-10 -left-10 w-[200px] h-[200px] bg-[#ADFF2F] blur-[80px] rounded-full opacity-20 mix-blend-screen" />
 
-            <h3 className="text-xl md:text-2xl font-bold mb-3">
-              الرؤية
-            </h3>
-
-            <p className="text-gray-600 leading-relaxed">
-              أن نكون الشريك الإبداعي الأول في المملكة والمنطقة.
+            <h4 className="text-2xl font-black mb-3 text-black">الرؤية</h4>
+            <p className="text-gray-800 leading-relaxed">
+              أن نكون الشريك الإبداعي الأول في المملكة والمنطقة، الذي يبتكر حلولاً تسويقية متجددة.
             </p>
           </motion.div>
 
           {/* MISSION */}
           <motion.div
-            whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="relative p-6 md:p-8 rounded-2xl bg-white border border-gray-200 shadow-sm overflow-hidden"
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative p-8 bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl overflow-hidden shadow-lg"
           >
-            <div className="absolute -bottom-10 -right-10 w-[180px] h-[180px] bg-lime-400/20 blur-[80px] rounded-full" />
+            {/* توهج داخلي ناعم */}
+            <div className="absolute -bottom-10 -right-10 w-[220px] h-[220px] bg-[#ADFF2F] blur-[90px] rounded-full opacity-20 mix-blend-screen" />
 
-            <h3 className="text-xl md:text-2xl font-bold mb-3">
-              الرسالة
-            </h3>
-
-            <p className="text-gray-600 leading-relaxed">
-              تمكين العلامات التجارية من الوصول إلى جمهورها بفعالية عبر الإبداع والتقنية.
+            <h4 className="text-2xl font-black mb-3 text-black">الرسالة</h4>
+            <p className="text-gray-800 leading-relaxed">
+              تمكين العلامات التجارية من الوصول إلى جمهورها بفعالية عبر الإبداع والتقنية والتحليل.
             </p>
           </motion.div>
-
         </div>
       </div>
     </section>
