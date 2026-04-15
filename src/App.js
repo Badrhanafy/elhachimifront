@@ -19,6 +19,7 @@ import About from './pages/About';
 import AdminLogin from './pages/admin/AdminLogin';
 import Contact from './pages/Contact';
 import Portfolio from './potfolio/portfolio';
+import UploadImages from './potfolio/admin/Uploads';
 
 // lazy admin
 const AdminLayout = React.lazy(() => import('./components/layout/AdminLayout'));
@@ -66,6 +67,7 @@ function App() {
           <Route path='/login' element={<AdminLogin/>}/>
           <Route path='/contact' element={<Contact/>}/>
            <Route path="/portfolio" element={<Portfolio />} />
+           <Route path="/uploadimages" element={<UploadImages/>} />
         </Routes>
      
       </React.Suspense>

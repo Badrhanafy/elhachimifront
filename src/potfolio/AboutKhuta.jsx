@@ -5,7 +5,19 @@ function AboutKhuta() {
   return (
     <section className="w-full bg-[#f8f9fa] py-24 px-6 font-sans text-[#1a1a1a]" dir="rtl">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
-
+     <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)', // لدعم متصفحات WebKit
+          backgroundColor: 'rgba(173, 255, 47, 0.15)', // أخضر مصفر شفاف
+          mixBlendMode: 'overlay',
+          // إضافة نسيج خفيف اختياري لزيادة الواقعية
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
+          backgroundRepeat: 'repeat',
+          backgroundSize: '100px 100px',
+        }}
+      />
         {/* Top Centered Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

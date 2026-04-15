@@ -24,7 +24,7 @@ function About() {
     }, 25);
 
     return () => clearInterval(interval);
-  }, [isInView]);
+  }, [isInView, descriptionText.length]);
 
   return (
     <section
@@ -32,30 +32,32 @@ function About() {
       dir="rtl"
       style={{ fontFamily: "lightfont" }}
     >
+      {/* ===== طبقة الزجاج الأخضر المصفر الحقيقية ===== */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          backdropFilter: "blur(12px)",
+          WebkitBackdropFilter: "blur(12px)",
+          backgroundColor: "rgba(173, 255, 47, 0.15)", // #ADFF2F شفاف
+          mixBlendMode: "overlay",
+          // نسيج ضوضاء خفيف لزيادة واقعية الزجاج (اختياري)
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
+          backgroundRepeat: "repeat",
+          backgroundSize: "100px 100px",
+        }}
+      />
 
-      {/*  LUXURY GREEN GLOW BACKGROUND */}
-{/* SOFT LUXURY GREEN/YELLOW GLOW */}
-<div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* طبقة توهج ناعم إضافية لتعزيز اللون الأخضر دون التأثير على الزجاج */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#ADFF2F] blur-[120px] rounded-full opacity-30 mix-blend-screen" />
+        <div className="absolute -top-32 -right-40 w-[300px] h-[300px] bg-[#ADFF2F] blur-[140px] rounded-full opacity-20 mix-blend-screen" />
+        <div className="absolute -bottom-40 -left-40 w-[400px] h-[400px] bg-[#b6f605] blur-[160px] rounded-full opacity-20 mix-blend-screen" />
+      </div>
 
-  {/* main soft center glow */}
-  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[#b5f30c] blur-[98px] rounded-full"></div>
-
-  {/* side glow left */}
-  <div className="absolute -top-32 -right-40 w-[100px] h-[100px] bg-[#b6f605] blur-[140px] rounded-full"></div>
-
-  {/* side glow right */}
-  <div className="absolute -bottom-40 -left-40 w-[300px] h-[300px] bg-[#d7f979] blur-[160px] rounded-full"></div>
-
-  {/* soft white veil to keep readability */}
-  <div className="absolute inset-0 bg-white/60 backdrop-blur-[1px]"></div>
-
-</div>
-
+      {/* المحتوى الأساسي فوق طبقات الخلفية */}
       <div className="relative z-10 w-full max-w-5xl mx-auto flex flex-col items-center">
-
         {/* TOP SECTION */}
         <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-14">
-
           {/* TEXT */}
           <motion.div
             ref={containerRef}
@@ -73,7 +75,7 @@ function About() {
               من نحن !
             </h3>
 
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed min-h-[120px]">
+            <p className="text-gray-800 text-base md:text-lg leading-relaxed min-h-[120px]">
               {descriptionText.slice(0, visibleCount)}
               <motion.span
                 animate={{ opacity: [0, 1, 0] }}
@@ -90,13 +92,11 @@ function About() {
             transition={{ duration: 0.8 }}
             className="relative flex justify-center"
           >
-            {/* glow behind card */}
-            <div className="absolute w-[120%] h-[120%] bg-[#93f304]/30 blur-[100px] rounded-full"></div>
+            {/* توهج خلف البطاقة بلون أخضر مصفر */}
+            <div className="absolute w-[120%] h-[120%] bg-[#ADFF2F] blur-[100px] rounded-full opacity-40 mix-blend-screen" />
 
             <div className="relative w-72 h-72 bg-black flex items-center justify-center overflow-hidden shadow-2xl">
-
-              <div className="absolute inset-0 bg-gradient-to-br from-[#93f304]/30 via-transparent to-black/80"></div>
-
+              <div className="absolute inset-0 bg-gradient-to-br from-[#ADFF2F]/40 via-transparent to-black/80" />
               <img
                 src="/logo2.png"
                 alt="logo"
@@ -107,23 +107,22 @@ function About() {
         </div>
 
         {/* DIVIDER */}
-        <div className="w-full h-px bg-gray-200 mb-10"></div>
+        <div className="w-full h-px bg-gray-300/60 mb-10" />
 
         {/* VISION / MISSION */}
         <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-
           {/* VISION */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="relative p-8 bg-transparent border  overflow-hidden"
+            className="relative p-8 bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl overflow-hidden shadow-lg"
           >
-            {/* glow */}
-            <div className="absolute -top-10 -left-10 w-[200px] h-[200px] bg-[#93f304]/20 blur-[80px] rounded-full"></div>
+            {/* توهج داخلي ناعم */}
+            <div className="absolute -top-10 -left-10 w-[200px] h-[200px] bg-[#ADFF2F] blur-[80px] rounded-full opacity-20 mix-blend-screen" />
 
             <h4 className="text-2xl font-black mb-3 text-black">الرؤية</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-800 leading-relaxed">
               أن نكون الشريك الإبداعي الأول في المملكة والمنطقة، الذي يبتكر حلولاً تسويقية متجددة.
             </p>
           </motion.div>
@@ -133,17 +132,16 @@ function About() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative p-8 bg-transparent border  overflow-hidden"
+            className="relative p-8 bg-white/20 backdrop-blur-sm border border-white/30 rounded-2xl overflow-hidden shadow-lg"
           >
-            {/* glow */}
-            <div className="absolute -bottom-10 -right-10 w-[220px] h-[220px] bg-[#93f304]/20 blur-[90px] rounded-full"></div>
+            {/* توهج داخلي ناعم */}
+            <div className="absolute -bottom-10 -right-10 w-[220px] h-[220px] bg-[#ADFF2F] blur-[90px] rounded-full opacity-20 mix-blend-screen" />
 
             <h4 className="text-2xl font-black mb-3 text-black">الرسالة</h4>
-            <p className="text-gray-600 leading-relaxed">
+            <p className="text-gray-800 leading-relaxed">
               تمكين العلامات التجارية من الوصول إلى جمهورها بفعالية عبر الإبداع والتقنية والتحليل.
             </p>
           </motion.div>
-
         </div>
       </div>
     </section>
