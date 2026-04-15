@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-black border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-sm border border-gray-200 p-6;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-black focus:border-transparent;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .badge-pending {
+    @apply bg-yellow-100 text-yellow-800;
+  }
+  
+  .badge-confirmed {
+    @apply bg-green-100 text-green-800;
+  }
+  
+  .badge-done {
+    @apply bg-gray-100 text-gray-800;
+  }
+  
+  .badge-shooting {
+    @apply bg-purple-100 text-purple-800;
+  }
+  
+  .badge-analysis {
+    @apply bg-blue-100 text-blue-800;
+  }
+}
+@font-face {
+  font-family: "font1";
+  src: url('../public/fonts/MADE\ Outer\ Sans\ Thin\ PERSONAL\ USE.otf');
+}
+@font-face {
+  font-family: "font2";
+  src: url('../public/fonts/MADE\ Outer\ Sans\ Outline\ Bold\ PERSONAL\ USE.otf');
+}
+@font-face {
+  font-family: "links";
+  src: url('../public/fonts/fontmedium.otf');
+}
+@font-face {
+  font-family: "arabic";
+  src: url('../public/fonts/arabicfont2.ttf');
+}
+@font-face {
+  font-family: "ae_arab";
+  src: url('../public/fonts/arabicfont.ttf');
+}
+
+@font-face {
+  font-family: "lightfont";
+  src: url('../public/fonts/fontarabic.otf');
+}
+.font{
+  font-family: "ae_arab", sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "ae_arab", sans-serif;
+}
+
+.texts{
+  font-family: "font1";
+}
+.titles{
+  font-family: "links";
+}
+.links{
+  font-family: "links";
+}
+.arabicword{
+  font-family:"arabic";
+  background-color: 'red';
+}
+
+/* admin login styles */
+
+/* Add to your global CSS file (e.g., index.css or App.css) */
+
+@keyframes blob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(184, 230, 1, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(184, 230, 1, 0.5);
+}
+#frame{
+  box-shadow: inset 0 0 30px rgba(173, 255, 47, 0.2);
+}
