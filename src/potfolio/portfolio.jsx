@@ -23,12 +23,14 @@ function Portfolio() {
       <DigitalIdentity />
       <Photos />
       <Videos />
+      <ServicesGrid />
+      <Process />
       <VideoShowcase />
       
       <WhyUs />
-      <ServicesGrid />
       
-      <Process />
+      
+      
     </div>
   );
 }

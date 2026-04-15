@@ -67,9 +67,7 @@ function About() {
             transition={{ duration: 0.8 }}
             className="text-right"
           >
-            <div className="inline-block bg-gray-100 text-gray-500 text-[10px] px-3 py-1 rounded-full mb-3">
-              من نحن
-            </div>
+       
 
             <h3 className="text-4xl md:text-6xl font-black text-black mb-4">
               من نحن !
@@ -96,7 +94,7 @@ function About() {
             <div className="absolute w-[120%] h-[120%] bg-[#ADFF2F] blur-[100px] rounded-full opacity-40 mix-blend-screen" />
 
             <div className="relative w-72 h-72 bg-black flex items-center justify-center overflow-hidden shadow-2xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#ADFF2F]/40 via-transparent to-black/80" />
+              <div className="absolute  inset-0 bg-gradient-to-br from-[#ADFF2F]/40 via-transparent to-black/80" />
               <img
                 src="/logo2.png"
                 alt="logo"
@@ -123,7 +121,10 @@ function About() {
 
             <h4 className="text-2xl font-black mb-3 text-black">الرؤية</h4>
             <p className="text-gray-800 leading-relaxed">
-              أن نكون الشريك الإبداعي الأول في المملكة والمنطقة، الذي يبتكر حلولاً تسويقية متجددة.
+              نطمح إلى أن نكون وكالة رقمية رياضية رائدة، تجمع بين الإبداع والتقنية لصناعة محتوى رياضي مؤثر واحترافي.
+نؤمن أن الرياضة ليست فقط مباريات ونتائج، بل هي قصة تُروى بصرياً، وهوية تُبنى رقمياً، وتأثير يصل إلى الجمهور في كل مكان.
+
+نشتغل على تطوير الهوية الرقمية للأندية والرياضيين عبر التصوير، التصميم، وصناعة المحتوى، مع التركيز على الجودة، السرعة، والابتكار.
             </p>
           </motion.div>
 
@@ -139,7 +140,9 @@ function About() {
 
             <h4 className="text-2xl font-black mb-3 text-black">الرسالة</h4>
             <p className="text-gray-800 leading-relaxed">
-              تمكين العلامات التجارية من الوصول إلى جمهورها بفعالية عبر الإبداع والتقنية والتحليل.
+              نؤمن دوماً بالطرق الإبداعية والأكثر ابتكاراً لإبراز هويتكم الرقمية.
+نحوّل الأفكار إلى محتوى بصري مؤثر يعكس قوة حضوركم في العالم الرقمي.
+ونسعى دائماً لصناعة تجربة رقمية مختلفة تترك بصمتها في كل تفاصيلها.
             </p>
           </motion.div>
         </div>
